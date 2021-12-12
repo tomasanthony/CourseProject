@@ -1,1 +1,9 @@
 .idea
+venv/
+azure/
+data/idx
+*.swp
+.vscode/
+cloud-init.txt
+distilbert-base-uncased
+bert_ner_model
