@@ -39,6 +39,7 @@ class BERTNer:
         return entities[ner_prediction], rankings_list[0][ner_prediction]
 
     def classify_entity(self, text):
+        # If the entity prediction reaches the confidence threshold, classify the text as the entity
         entity, pred_score = self.predict(text)
         if pred_score < self.recognition_threshold:
             return None, None

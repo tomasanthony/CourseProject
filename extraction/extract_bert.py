@@ -11,6 +11,7 @@ def main(bio_dir, name_path):
         with codecs.open(os.path.join(bio_dir, str(i) + '.txt'), 'r', encoding='utf-8', errors='ignore') as f:
             text = f.read()
         split_text = text.split()
+        # Generate ngram tokens to then attempt to classify different lengths of text, up to length = 6 tokens
         ngrams = list(everygrams(split_text, max_len=6))
         tokens = np.array(list(map(' '.join, ngrams)))
         for token in tokens:

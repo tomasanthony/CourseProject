@@ -25,11 +25,13 @@ print(corpora.Entity.value_counts())
 
 x, y = corpora['Text'], corpora['Entity']
 
+# Encode the y output text
 label_encoder = LabelEncoder()
 labels = label_encoder.fit_transform(y)
 entity_mapping = dict(zip(range(len(label_encoder.classes_)), label_encoder.classes_))
 
 # ros_strategy = {}
+# Reduce the values in the rus_strategy dict to change training time length
 rus_strategy = {0: 1000, 1: 1000, 2: 1000, 3: 1000, 4: 1000, 5: 1000}
 
 print('Dataset pre-resampling shape %s' % Counter(labels))
@@ -51,11 +53,13 @@ df = pd.DataFrame(x_final)
 train_text, test_text, train_labels, test_labels = train_test_split(x_final.flatten(), y_final, random_state=32,
                                                                     test_size=250, stratify=y_final)
 
+# Using DistilBert for a better balance of performance and model size.
 model = DistilBertForSequenceClassification.from_pretrained(bert_directory, num_labels=len(y.unique()))
 tokenizer = DistilBertTokenizerFast.from_pretrained(bert_directory)
 model.save_pretrained(bert_directory)
 tokenizer.save_pretrained(bert_directory)
 
+# Tokenize the x input text
 train_encodings = tokenizer(train_text.tolist(), truncation=True, padding=True)
 eval_encodings = tokenizer(test_text.tolist(), truncation=True, padding=True)
 
@@ -91,7 +95,7 @@ training_args = TrainingArguments(
     logging_steps=10,
 )
 
-
+# Use accuracy, F1 Score, Precision, and Recall to evaluate the model
 def compute_metrics(pred):
     labels = pred.label_ids
     preds = pred.predictions.argmax(-1)
