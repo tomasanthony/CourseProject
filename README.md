@@ -1,4 +1,5 @@
 # ExpertSearch with BERT Named Entity Recognition (Fall 2021 Course Project Update)
+The code added to ExpertSearch in this project concerns the BERT NER model training, entity extraction, and batch extraction.
 In order to execute named entity recognition (NER) with the BERT classification model:
 
 ## Install requirements
