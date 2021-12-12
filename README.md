@@ -28,7 +28,8 @@ Link:
 
 https://uillinoisedu-my.sharepoint.com/:v:/g/personal/tomasaa2_illinois_edu/EUwiwWKyskJLrwxgM4S-mQEBqGD3A2o5hJdX5pbYV8KwHA?e=QEiXa8
 
-# ExpertSearch
+# Previous ExpertSearch README
+## ExpertSearch
 
 To run the code, run the following command from `ExpertSearch` (tested with Python2.7 on MacOS and Linux):
 
