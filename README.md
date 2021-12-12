@@ -30,6 +30,8 @@ And each of these strings is fed to the BERT model to make a classification.
 
 Once the classifications are made, the text is written to a file, named after the entity classification it belongs to.
 
+This mirrors ExpertSearch's previous structure - however, the new BERT text files have not yet fully replaced the ExpertSearch text files in the data directory.
+
 In order to execute named entity recognition (NER) with the BERT classification model:
 
 ## Install requirements
